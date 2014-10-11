@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>8E627BCA-3686-4490-A678-BB5E5E5C691E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>DNLM</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>73434AF64D6E95592A6CD634142A88319EBDFD5B</key>
+		<string>https://github.com/mingmingyang/DNLM.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>DNLM/DNLM.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>73434AF64D6E95592A6CD634142A88319EBDFD5B</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/mingmingyang/DNLM.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>73434AF64D6E95592A6CD634142A88319EBDFD5B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>73434AF64D6E95592A6CD634142A88319EBDFD5B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>DNLM</string>
+		</dict>
+	</array>
+</dict>
+</plist>

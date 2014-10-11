@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A945618419E93D2B001CEC26 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A945618319E93D2B001CEC26 /* main.cpp */; };
+		A945618F19E9433E001CEC26 /* dnnlmlib.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A945618D19E9433E001CEC26 /* dnnlmlib.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		A945618019E93D2B001CEC26 /* DNLM */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DNLM; sourceTree = BUILT_PRODUCTS_DIR; };
 		A945618319E93D2B001CEC26 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		A945618D19E9433E001CEC26 /* dnnlmlib.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dnnlmlib.cpp; sourceTree = "<group>"; };
+		A945618E19E9433E001CEC26 /* dnnlmlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dnnlmlib.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				A945618319E93D2B001CEC26 /* main.cpp */,
+				A945618D19E9433E001CEC26 /* dnnlmlib.cpp */,
+				A945618E19E9433E001CEC26 /* dnnlmlib.h */,
 			);
 			path = DNLM;
 			sourceTree = "<group>";
@@ -119,6 +124,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A945618419E93D2B001CEC26 /* main.cpp in Sources */,
+				A945618F19E9433E001CEC26 /* dnnlmlib.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
