@@ -9,7 +9,8 @@
 #ifndef __DNLM__dnnlmlib__
 #define __DNLM__dnnlmlib__
 #define MAX_STRING 100
-
+#include <stdio.h>
+#include <stdlib.h>
 typedef double real;// doubles for NN weights
 //typedef double direct_t;
 
@@ -66,7 +67,7 @@ protected:
     int layer1_size;
     int layer2_size;
     long long direct_size;
-    
+    float min_improvement;
     struct neuron *neu0;// neurons in input layer
     struct neuron *neu1;// neurons in hidden layer
     struct neuron *neu2;//neurons in output layer
@@ -79,11 +80,101 @@ public:
     CDnnLM() //constructor initializes variables
     {
         version=0;
+        use_lmprob=0;
+        train_file[0]=0;
+        valid_file[0]=0;
+        test_file[0]=0;
+        dnnlm_file[0]=0;
+        train_file_set=0;
+        alpha=0.1;
+        beta=0.0000001;
+        iter=0;
+        min_improvement=1.003;
+        train_words=0;
+        train_cur_pos=0;
+        vocab_max_size=100;
+        vocab_size=0;
+        vocab=(struct vocab_word *)calloc(vocab_max_size,sizeof(struct vocab_word));
+        layer1_size=30;
+        
+        neu0=NULL;
+        neu1=NULL;
+        neu2=NULL;
+        
+        syn0=NULL;
+        syn1=NULL;
+        class_size=100;
+        one_iter=0;
+        debug_mode=1;
+        
+        vocab_hash_size=100000000;
+        vocab_hash=(int *)calloc(vocab_hash_size,sizeof(int));
         
     }
+    ~CDnnLM()
+    {
+        int i;
+        if (neu0!=NULL) {
+            free(neu0);
+            free(neu1);
+            free(neu2);
+            
+            free(syn0);
+            free(syn1);
+            
+            for (i=0;i<class_size;i++)
+            {
+                free(class_words[i]);
+            }
+                 free(class_max_cn);
+                 free(class_cn);
+                 free(class_words);
+                
+                 free(vocab);
+                 free(vocab_hash);
+        }
+    }
     
+    real random(real min,real max);
     
+    void setTrainFile(char *str);
+    void setValidFile(char *str);
+    void setTestFile(char *str);
+    void setDnnLMFile(char *str);
+    void setFileType(int newt){filetype=newt;}
+    void setClassSize(int newSize){class_size=newSize;}
+    void setLambda(real newLambda){lambda=newLambda;}
+    
+    void setLearningRate(real newAlpha){alpha=newAlpha;}
+    void setRegularization(real newBeta){beta=newBeta;}
+    void setMinImprovement(real newMinImprovement){min_improvement=newMinImprovement;}
+    void setHiddenLayerSize(int newsize){layer1_size=newsize;}
+    void setDebugMode(int newDebug){debug_mode=newDebug;}
+    void setOneIter(int newOneIter){one_iter=newOneIter;}
+    
+    int getWordHash(char *word);
+    void readWord(char *word, FILE *fin);
+    int searchVocab(char *word);
+    int readWordIndex(FILE *fin);
+    int addWordToVocab(char *word);
+    void learnVocabFromTrainFile();
+    
+    void saveWeights();
+    void restoreWeights();
+    
+    void initNet();
+    void saveNet();
+    void goTodelimiter(int delim,FILE *fi);
+    void restoreNet();
+    void netFlush();
+    void netReset();
+    
+    void computeNet(int last_word,int word);
+    void learnNet(int last_word,int word);
+    void trainNet();
+    void testNet();
+    void matrixXvector(struct neuron *dest,struct neuron *srcvec,struct synapse *srcmatrix,int matrix_width,int from,int to,int from2,int to2,int type);
 };
-#include <stdio.h>
+
 
 #endif /* defined(__DNLM__dnnlmlib__) */
